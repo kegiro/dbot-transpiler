@@ -1,0 +1,23 @@
+bot {
+    token: "ENV"
+}
+
+command yo admin {
+    reply "Yo!"
+    attach button {
+        label: "Yo!"
+        id: "yo_btn"
+        style: green
+    }
+}
+
+on button("yo_btn") {
+    let username = user.name
+    
+    create channel {
+        name: username
+        private: true
+    }
+    
+    reply "Your private channel has been created!"
+}
